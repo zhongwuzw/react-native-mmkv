@@ -18,8 +18,10 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = {
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
+    "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited) FORCE_POSIX",
   }
-  
+  s.compiler_flags = '-x objective-c++'
+  s.libraries    = "z", "c++"
   s.source_files = [
     # react-native-mmkv
     "ios/**/*.{h,m,mm}",
