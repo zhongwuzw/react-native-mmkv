@@ -18,14 +18,17 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = {
     "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
+    "GCC_PREPROCESSOR_DEFINITIONS" => "$(inherited)",
   }
-  
+  s.compiler_flags = '-x objective-c++'
+  # s.compiler_flags = '-x c++'
+  s.libraries    = "z", "c++"
   s.source_files = [
     # react-native-mmkv
     "ios/**/*.{h,m,mm}",
-    "cpp/**/*.{hpp,cpp,c,h}"
+    # "cpp/**/*.{hpp,cpp,c,h}"
   ]
-
   s.dependency 'MMKVCore'
+  
   install_modules_dependencies(s)
 end
